@@ -2,7 +2,7 @@
 from typing import List
 
 
-def pascal_triangle(n: int) -> List[list]:
+def pascal_triangle(n):
     '''
     Pascal triangle
     '''
