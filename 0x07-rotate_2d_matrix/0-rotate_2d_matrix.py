@@ -8,7 +8,9 @@ def rotate_2d_matrix(matrix):
     """
     rotating function
     """
-    if type(matrix) != list or len(matrix) <= 0:
+    if type(matrix) != list:
+        return
+    if len(matrix) <= 0:
         return
 
     if not all(map(lambda x: type(x) == list, matrix)):
