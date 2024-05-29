@@ -2,38 +2,19 @@
 """
 Matrix rotation by 90 degrees
 """
-from typing import List
 
 
 def rotate_2d_matrix(matrix):
     """
-    Rotates a 2D matrix by 90 degrees clockwise in place.
-
-    Parameters:
-    matrix: A 2D list of integers representing the matrix to rotate.
-
-    Returns:
-    None
+    matrix rotating
     """
-    if not isinstance(matrix, list):
-        return
-    if len(matrix) == 0:
-        return
-
-    if not all(isinstance(row, list) for row in matrix):
-        return
-
-    rows = len(matrix)
-    cols = len(matrix[0])
-
-    if not all(len(row) == cols for row in matrix):
-        return
-
-    # Transpose the matrix
-    for i in range(rows):
-        for j in range(i + 1, cols):
-            matrix[i][j], matrix[j][i] = matrix[j][i], matrix[i][j]
-
-    # Reverse each row to get the 90 degrees rotated matrix
-    for i in range(rows):
-        matrix[i].reverse()
+    n = len(matrix)
+    for i in range(int(n / 2)):
+        y = (n - i - 1)
+        for j in range(i, y):
+            x = (n - 1 - j)
+            tmp = matrix[i][j]
+            matrix[i][j] = matrix[x][i]
+            matrix[x][i] = matrix[y][x]
+            matrix[y][x] = matrix[j][y]
+            matrix[j][y] = tmp
