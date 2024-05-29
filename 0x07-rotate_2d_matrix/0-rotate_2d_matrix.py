@@ -1,36 +1,49 @@
 #!/usr/bin/python3
 """
-Matrix rotation by 90deg
+Matrix rotation by 90 degrees
 """
 
+from typing import List
 
-def rotate_2d_matrix(matrix):
+def rotate_2d_matrix(matrix: List[List[int]]) -> None:
     """
-    rotating function
+    Rotates a 2D matrix by 90 degrees clockwise in place.
+
+    Parameters:
+    matrix (List[List[int]]): A 2D list of integers representing the matrix to rotate.
+
+    Returns:
+    None
     """
-    if type(matrix) != list:
+    if not isinstance(matrix, list):
         return
-    if len(matrix) <= 0:
+    if len(matrix) == 0:
         return
 
-    if not all(map(lambda x: type(x) == list, matrix)):
+    if not all(isinstance(row, list) for row in matrix):
         return
 
     rows = len(matrix)
     cols = len(matrix[0])
 
-    if not all(map(lambda x: len(x) == cols, matrix)):
+    if not all(len(row) == cols for row in matrix):
         return
 
-    c, r = 0, rows - 1
+    # Transpose the matrix
+    for i in range(rows):
+        for j in range(i + 1, cols):
+            matrix[i][j], matrix[j][i] = matrix[j][i], matrix[i][j]
 
-    for i in range(cols * rows):
-        if i % rows == 0:
-            matrix.append([])
-        if r == -1:
-            r = rows - 1
-            c += 1
-        matrix[-1].append(matrix[r][c])
-        if c == cols - 1 and r >= -1:
-            matrix.pop(r)
-        r -= 1
+    # Reverse each row to get the 90 degrees rotated matrix
+    for i in range(rows):
+        matrix[i].reverse()
+
+# Example usage
+if __name__ == "__main__":
+    mat = [
+        [1, 2, 3],
+        [4, 5, 6],
+        [7, 8, 9]
+    ]
+    rotate_2d_matrix(mat)
+    print(mat)
