@@ -37,14 +37,3 @@ def rotate_2d_matrix(matrix):
     # Reverse each row to get the 90 degrees rotated matrix
     for i in range(rows):
         matrix[i].reverse()
-
-
-# Example usage
-if __name__ == "__main__":
-    mat = [
-        [1, 2, 3],
-        [4, 5, 6],
-        [7, 8, 9]
-    ]
-    rotate_2d_matrix(mat)
-    print(mat)
