@@ -2,15 +2,15 @@
 """
 Matrix rotation by 90 degrees
 """
-
 from typing import List
 
-def rotate_2d_matrix(matrix: List[List[int]]) -> None:
+
+def rotate_2d_matrix(matrix):
     """
     Rotates a 2D matrix by 90 degrees clockwise in place.
 
     Parameters:
-    matrix (List[List[int]]): A 2D list of integers representing the matrix to rotate.
+    matrix: A 2D list of integers representing the matrix to rotate.
 
     Returns:
     None
@@ -37,6 +37,7 @@ def rotate_2d_matrix(matrix: List[List[int]]) -> None:
     # Reverse each row to get the 90 degrees rotated matrix
     for i in range(rows):
         matrix[i].reverse()
+
 
 # Example usage
 if __name__ == "__main__":
