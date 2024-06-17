@@ -6,7 +6,7 @@
 
 def isWinner(x, nums):
     '''
-    Decides who won    
+    Decides who won
     '''
     winnerCounter = {'Maria': 0, 'Ben': 0}
 
